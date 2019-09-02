@@ -66,7 +66,7 @@ outputs = codecs.open(trainfile, 'a+','utf-8')
 # seg_list = jieba.cut(conten, cut_all=False)
 
 for line in inputs:
-    results=re.compile("https://[a-zA-Z0-9.?/&=:]*",re.S)
+    results=re.compile("(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]",re.S)
     dd=results.sub("",line)
     line_seg = seg_depart(re.compile("http://[a-zA-Z0-9.?/&=:]*",re.S).sub("",dd))
     outputs.write(line_seg + '\n')
