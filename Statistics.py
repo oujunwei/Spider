@@ -83,11 +83,9 @@ def distinction(beginDate,middleDate,endDate):
                         elif(datetime.datetime.strptime(endDate,'%Y/%m/%d')<= date):
                             WriteFile.save(statics+'\\'+'end.dat',results.sub("",comm[i].split('","')[1]))
                     except Exception as e:
-                        print (e)
+                        print(comm[i])
+                        print(e)
         else :
-
-
-
             a = WriteFile.readFile(commnet_output_file+str(index+1)+'.dat','r','UTF-8')
             # save title+name+comment+time
     print('总计发帖量：'+'条')
