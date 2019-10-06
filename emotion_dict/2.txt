@@ -1,0 +1,19 @@
+key = pos_number , value = 17832 
+key = neg_number , value = 22391 
+key = mid_number , value = 25534 
+key = number_ratio , value = 0.8 
+key = pos_mean , value = 2.1 
+key = neg_mean , value = -2.3 
+key = total_mean , value = -0.2 
+key = mean_ratio , value = 0.9 
+key = pos_variance , value = 6.7 
+key = neg_variance , value = 5.6 
+key = total_variance , value = 6.6 
+key = var_ratio , value = 1.2 
+key = text_pos_number , value = 积极条数为 17832 条，占全部比例的 %27.0 
+key = text_neg_number , value = 消极条数为 22391 条，占全部比例的 %34.0 
+key = text_mid_number , value = 中性情感条数为 25534 条，占全部比例的 %39.0 
+key = text_pos_mean , value = 平和。他感觉到所有的一切都生机勃勃并光芒四射，虽然在其他人眼里这个世界还是老样子，但是在这人眼里世界却是一个。所以头脑保持长久的沉默，不再分析判断。观察者和被观察者成为同一个人，观照者消融在观照中，成为观照本身。 
+key = text_neg_mean , value = 愤怒。如果有人能跳出冷漠和内疚的怪圈，并摆脱恐惧的控制，他就开始有欲望了，而欲望则带来挫折感，接着引发愤怒。愤怒常常表现为怨恨和复仇心里，它是易变且危险的。愤怒来自未能满足的欲望，来自比之更低的能量级。挫败感来自于放大了欲望的重要性。愤怒很容易就导致憎恨，这会逐渐侵蚀一个人的心灵。 
+key = text_total_mean , value = 淡定。到达这个能级的能量都变得很活跃了。淡定的能级则是灵活和无分别性的看待现实中的问题。到来这个能级，意味着对结果的超然，一个人不会再经验挫败和恐惧。这是一个有安全感的能级。到来这个能级的人们，都是很容易与之相处的，而且让人感到温馨可靠,这样的人总是镇定从容。他们不会去强迫别人做什么。 
+key = text_total_var , value = 情感波动很小，个人情感是不易改变的、经得起考验的。能够理性的看待周围的人和事。 

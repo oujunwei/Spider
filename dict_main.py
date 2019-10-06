@@ -70,10 +70,11 @@ def transform_to_positive_num(poscount, negcount):
 def single_review_sentiment_score(weibo_sent):
 	single_review_senti_score = []
 	cuted_review = tp.cut_sentence(weibo_sent)  # 句子切分，单独对每个句子进行分析
-
+	seg_t=[]
 	for sent in cuted_review:
 		seg_sent = tp.segmentation(sent)   # 分词
 		seg_sent = tp.del_stopwords(seg_sent)[:]
+		seg_t +=seg_sent
 		#for w in seg_sent:
 		#	print w,
 		i = 0    # 记录扫描到的词的位置
@@ -118,31 +119,28 @@ def single_review_sentiment_score(weibo_sent):
 	#print pos_result, neg_result
 	result = pos_result - neg_result   # 该条微博情感的最终得分
 	result = round(result, 1)
-	return result
-
-
-# 测试
-weibo_sent = "这手机的画面挺好，。"
-score = single_review_sentiment_score(weibo_sent)
-print (score)
+	return result,seg_t
 
 
 # 分析test_data.txt 中的所有微博，返回一个列表，列表中元素为（分值，微博）元组
 def run_score():
-	contents = wf.readFile(path+"\\data\\statistics\\begin.dat",'r','utf-8')
+	contents = wf.readFile(path+"\\data\\statistics\\end.dat",'r','utf-8')
 	results = []
 	for content in contents:
-		score = single_review_sentiment_score(content)  # 对每条微博调用函数求得打分
-		results.append((score, content))   # 形成（分数，微博）元组
+		score, seg_sent = single_review_sentiment_score(content)  # 对每条微博调用函数求得打分
+		results.append((score, seg_sent))   # 形成（分数，微博）元组
+		# results.append((score, content))   # 形成（分数，微博）元组
 	return results
 
 # 将（分值，句子）元组按行写入结果文件test_result.txt中
 def write_results(results):
-	fp_result = open(path+"\\emotion_dict\\test_result.txt", 'w',encoding='utf-8')
+	fp_result = open(path+"\\emotion_dict\\test_result3.txt", 'w',encoding='utf-8')
 	for result in results:
 		fp_result.write(str(result[0]))
 		fp_result.write(' ')
-		fp_result.write(result[1])
+		for s1 in result[1]:
+			fp_result.write(str(s1))
+			fp_result.write(' ')
 		fp_result.write('\n')
 	fp_result.close()
 

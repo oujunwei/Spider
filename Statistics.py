@@ -76,11 +76,11 @@ def distinction(beginDate,middleDate,endDate):
                     try:
                         date = datetime.datetime.strptime(comm[i].split('","')[2].strip().replace("\n",""),'%d/%m/%Y %H:%M')
 
-                        if(datetime.datetime.strptime(beginDate,'%Y/%m/%d')<=date and date <= datetime.datetime.strptime(middleDate,'%Y/%m/%d')):
+                        if(datetime.datetime.strptime(beginDate,'%Y/%m/%d')<=date and date < datetime.datetime.strptime(middleDate,'%Y/%m/%d')):
                             WriteFile.save(statics+'\\'+'begin.dat',results.sub("",comm[i].split('","')[1]))
                         elif(datetime.datetime.strptime(middleDate,'%Y/%m/%d')<=date and date <= datetime.datetime.strptime(endDate,'%Y/%m/%d')):
                             WriteFile.save(statics+'\\'+'meddile.dat',results.sub("",comm[i].split('","')[1]))
-                        elif(datetime.datetime.strptime(endDate,'%Y/%m/%d')<= date):
+                        elif(datetime.datetime.strptime(endDate,'%Y/%m/%d')< date):
                             WriteFile.save(statics+'\\'+'end.dat',results.sub("",comm[i].split('","')[1]))
                     except Exception as e:
                         print(comm[i])
@@ -116,6 +116,6 @@ def distinction(beginDate,middleDate,endDate):
 # WriteFile.save(all_commnet_output_file, words)
 
 if __name__ == '__main__':
-    distinction('2019/4/25','2019/6/1','2019/8/5')
+    distinction('2019/4/25','2019/6/1','2019/7/9')
     # getTitleInfor()
     # getAllComment_tittle()

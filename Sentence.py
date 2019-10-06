@@ -3,6 +3,7 @@ import os
 import configparser
 import codecs
 import re
+import WriteFile as wf
 
 path = os.getcwd()
 conf = configparser.ConfigParser()
@@ -58,30 +59,15 @@ def unite_files():
             strs.append(lit[1])
     save(all_commnet_output_file,strs)
 
-inputs =codecs.open(all_commnet_output_file,'r','utf-8')  #open url file
-# conten = fr.readlines()
-outputs = codecs.open(trainfile, 'a+','utf-8')
-
-
-# seg_list = jieba.cut(conten, cut_all=False)
+inputs = wf.readFile(path+"\\data\\statistics\\meddile.dat",'r','utf-8')
 
 for line in inputs:
     results=re.compile("(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]",re.S)
     dd=results.sub("",line)
     line_seg = seg_depart(re.compile("http://[a-zA-Z0-9.?/&=:]*",re.S).sub("",dd))
-    outputs.write(line_seg + '\n')
+    wf.save(path+"\\data\\statistics\\meddile1.dat",line_seg)
+    # outputs.write(line_seg + '\n')
     print("-------------------正在分词和去停用词-----------")
-outputs.close()
-inputs.close()
+# outputs.close()
+# inputs.close()
 print("删除停用词和分词成功！！！")
-
-# def line_seg(str):
-#     dedup_str = ''
-#     for char in str:
-#         if not char in dedup_list:
-#             dedup_str += char
-#
-#     return dedup_list
-#
-# str = input('line_seg')
-# print(line_seg(str))
